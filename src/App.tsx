@@ -470,7 +470,7 @@ function App() {
         <div>
           <a href="mailto:kontakt@glosmieszkancow.pl">Kontakt</a>
           <a href="#petition">Polityka prywatności</a>
-          <a href="/tresc-petycji.pdf" download>
+          <a href={`${import.meta.env.BASE_URL}tresc-petycji.pdf`} download>
             <FileText size={16} aria-hidden="true" /> Pobierz treść petycji PDF
           </a>
         </div>
