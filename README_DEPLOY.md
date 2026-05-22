@@ -1,4 +1,4 @@
-# Wdrożenie GitHub Pages i domena CBA
+# Wdrożenie na GitHub Pages
 
 ## Rozpoznanie projektu
 
@@ -7,72 +7,34 @@
 - Katalog wynikowy: `dist`.
 - Projekt jest statyczną stroną i nadaje się do publikacji na GitHub Pages.
 
+## Adres publiczny
+
+Strona ma działać pod adresem:
+
+```text
+https://pancakesonfire999.github.io/petycja-plock-festiwal/
+```
+
 ## GitHub Pages
 
-1. Wejdź w repozytorium na GitHub.
-2. Otwórz `Settings` -> `Pages`.
-3. W sekcji `Build and deployment` ustaw `Source` na `GitHub Actions`.
-4. W polu `Custom domain` wpisz:
+W repozytorium na GitHubie:
+
+1. Wejdź w `Settings` -> `Pages`.
+2. W sekcji `Build and deployment` ustaw `Source` na `Deploy from a branch`.
+3. Ustaw branch:
 
 ```text
-oszukanyhiphopplock.cba.pl
+gh-pages
 ```
 
-5. Zapisz.
-6. Poczekaj na sprawdzenie DNS.
-7. Gdy będzie dostępne, zaznacz `Enforce HTTPS`.
-
-## DNS w panelu CBA
-
-W panelu CBA:
-
-1. Wejdź w `Domeny`.
-2. Wybierz `oszukanyhiphopplock.cba.pl`.
-3. Wejdź w `ustawienia DNS` albo `ustawienia zaawansowane`.
-4. Ustaw rekord `CNAME` dla `oszukanyhiphopplock.cba.pl` na:
+4. Ustaw folder:
 
 ```text
-pancakesonfire999.github.io
+/ (root)
 ```
 
-Ważne:
-
-- Nie wpisywać `https://`.
-- Nie wpisywać `/nazwa-repo`.
-- Nie wpisywać całego adresu GitHub Pages.
-- Ma być tylko:
-
-```text
-pancakesonfire999.github.io
-```
-
-## Wariant awaryjny, jeśli CBA nie pozwala ustawić CNAME dla głównej domeny
-
-1. Utwórz subdomenę, np.:
-
-```text
-petycja.oszukanyhiphopplock.cba.pl
-```
-
-2. W GitHub Pages ustaw custom domain:
-
-```text
-petycja.oszukanyhiphopplock.cba.pl
-```
-
-3. W CBA ustaw rekord `CNAME` dla subdomeny `petycja` na:
-
-```text
-pancakesonfire999.github.io
-```
-
-4. W projekcie zmień plik `public/CNAME` na:
-
-```text
-petycja.oszukanyhiphopplock.cba.pl
-```
-
-5. Zrób commit i push.
+5. Usuń custom domain, jeśli nadal jest wpisana.
+6. Zapisz.
 
 ## Sprawdzenie lokalne
 
@@ -81,9 +43,14 @@ npm install
 npm run build
 ```
 
-Po buildzie sprawdź, czy w katalogu `dist` istnieją:
+Build produkcyjny pod GitHub Pages:
 
-- `index.html`
-- `CNAME`
-- `polityka-prywatnosci.html`
-- `tresc-petycji.pdf`
+```bash
+npm run build -- --mode github-pages
+```
+
+Po buildzie katalogiem publikowanym jest:
+
+```text
+dist
+```
