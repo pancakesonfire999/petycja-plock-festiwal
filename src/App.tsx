@@ -469,7 +469,7 @@ function App() {
         <p>Wykonanie Kornelia Studio 🌸🌼</p>
         <div>
           <a href="mailto:kontakt@glosmieszkancow.pl">Kontakt</a>
-          <a href="#petition">Polityka prywatności</a>
+          <a href={`${import.meta.env.BASE_URL}polityka-prywatnosci.html`}>Polityka prywatności</a>
           <a href={`${import.meta.env.BASE_URL}tresc-petycji.pdf`} download>
             <FileText size={16} aria-hidden="true" /> Pobierz treść petycji PDF
           </a>

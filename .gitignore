@@ -1,5 +1,13 @@
 node_modules
 dist
+build
+out
 .npm-cache
 .tools
+.env
+.env.local
+.env.production
+.vercel
+.netlify
+.wrangler
 .DS_Store
